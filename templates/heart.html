@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container cancer-container" style="color: lightblue">
+    <form action="{{ url_for('heart_predict')}}" method="post">
+        <h2 style="color: lightgreen;">Heart Disease Prediction</h2>
+        <h3>Age of Patient</h3>
+        <br>
+        <input type="number" name="age" placeholder="Age" required="required">
+        <br>
+        <h3>Sex</h3>
+        <br>
+        <select name="sex" id="sex" required="required">
+          <option value="0">Female</option>
+          <option value="1">Male</option>
+        </select>
+        <br>
+        <h3>Chest Pain Type (0, 1, 2, 3)</h3>
+        <br>
+        <select name="cp" id="cp" required="required">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <br>
+        <h3>Resting Blood Pressure in mmHg</h3>
+        <br>
+        <input type="number" name="trestbps" placeholder="Resting Blood Pressure" required="required">
+        <br>
+        <h3>Serum Cholestoral in mg/dl</h3>
+        <br>
+        <input type="number" name="chol" placeholder="Serum Cholestoral in mg/dl" required="required">
+        <br>
+        <h3>Fasting Blood Sugar > 120 mg/dl</h3>
+        <br>
+        <select name="fbs" id="fbs" required="required">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+        <br>
+        <h3>Resting Electro-CardioGraph Results</h3>
+        <br>
+        <select name="restecg" id="restecg" required="required">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+        <br>
+        <h3>Maximum Heart Rate Achieved</h3>
+        <br>
+        <input type="number" name="thalach" placeholder="Maximum Heart Rate Achieved" required="required">
+        <br>
+        <h3>Excercise Induced Angina</h3>
+        <br>
+        <select name="exang" id="exang" required="required">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+        <br>
+        <h3>ST depression induced by exercise relative to rest</h3>
+        <br>
+        <input type="text" name="oldpeak" placeholder="ST depression induced by exercise relative to rest" required="required">
+        <br>
+        <h3>The slope of the peak exercise ST segment</h3>
+        <br>
+        <select name="slope" id="slope" required="required">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+        <br>
+        <h3>Number of major vessels (0-3) colored by flourosopy</h3>
+        <br>
+        <select name="ca" id="ca" required="required">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <br>
+        <h3>T.H.A.L.</h3>
+        <br>
+        <select name="thal" id="thal" required="required">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <br>
+        <br>
+        <button id="sub" type="submit" style="background-color: lightgreen;">Get Heart Disease Info</button>
+    </form>
+    <br><h3>{{ prediction_text }}<h3>
+</div>
+
+{% endblock %}

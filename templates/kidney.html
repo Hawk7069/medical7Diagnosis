@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+  <style>
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+    }
+
+    #sub {
+      height: auto !important;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container cancer-container" style="color: lightblue">
+    <form action="{{ url_for('kidney_predict')}}" method="post">
+        <h2 style="color: lightgreen;">Chronic Kidney Disease Prediction</h2>
+        <table>
+          <tr>
+            <td>
+              <h3>Age:</h3>
+              <input type="number" name="age" placeholder="Age" required="required">
+            </td>
+            <td>
+              <h3>Blood Pressure:</h3>
+              <input type="text" name="bp" placeholder="Blood Pressure" required="required">
+            </td>
+            <td>
+              <h3>Specific Gravity:</h3>
+              <select name="sg" required="required">
+                <option value="1.005">1.005</option>
+                <option value="1.010">1.01</option>
+                <option value="1.015">1.015</option>
+                <option value="1.020">1.02</option>
+                <option value="1.025">1.025</option>
+              </select>
+            </td>
+            <td>
+              <h3>Albumin:</h3>
+              <select name="al" required="required">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Sugar:</h3>
+              <select name="su" required="required">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </td>
+            <td>
+              <h3>Red Blood Cells:</h3>
+              <select name="rbc"  required="required">
+                <option value="0">Normal</option>
+                <option value="1">Abnormal</option>
+              </select>
+            </td>
+            <td>
+              <h3>Pus Cell</h3>
+              <select name="pc" required="required">
+                <option value="0">Normal</option>
+                <option value="1">Abnormal</option>
+              </select>
+            </td>
+            <td>
+              <h3>Pus Cell Clumps</h3>
+              <select name="pcc" required="required">
+                <option value="0">Not Present</option>
+                <option value="1">Present</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Bacteria</h3>
+              <select name="ba" required="required">
+                <option value="0">Not Present</option>
+                <option value="1">Present</option>
+              </select>
+            </td>
+            <td>
+              <h3>Blood Glucose Random in mgs/dl</h3>
+              <input type="text" name="bgr" placeholder="Blood Glucose Random in mgs/dl" required="required">
+            </td>
+            <td>
+              <h3>Blood Urea in mgs/dl</h3>
+              <input type="text" name="bu" placeholder="Blood Urea in mgs/dl" required="required">
+            </td>
+            <td>
+              <h3>Serum Creatinine in mgs/dl</h3>
+              <input type="text" name="sc" placeholder="Serum Creatinine in mgs/dl" required="required">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Sodium in mEq/L</h3>
+              <input type="text" name="sod" placeholder="Sodium in mEq/L" required="required">
+            </td>
+            <td>
+              <h3>Potassium mEq/L</h3>
+              <input type="text" name="pot" placeholder="Potassium mEq/L" required="required">
+            </td>
+            <td>
+              <h3>Hemoglobin in gms</h3>
+              <input type="text" name="hemo" placeholder="Hemoglobin in gms" required="required">
+            </td>
+            <td>
+              <h3>Packed Cell Volume</h3>
+              <input type="text" name="pcv" placeholder="Packed Cell Volume" required="required">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>White Blood Cell Count in cells/cumm</h3>
+              <input type="text" name="wc" placeholder="White Blood Cell Count in cells/cumm" required="required">
+            </td>
+            <td>
+              <h3>Red Blood Cell Count in millions/cmm</h3>
+              <input type="text" name="rc" placeholder="Red Blood Cell Count in millions/cmm" required="required">
+            </td>
+            <td>
+              <h3>Hypertension</h3>
+              <select name="htn" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </td>
+            <td>
+              <h3>Diabetes Mellitus</h3>
+              <select name="dm" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>Coronary Artery Disease</h3>
+              <select name="cad" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </td>
+            <td>
+              <h3>Appetite</h3>
+              <select name="appet" required="required">
+                <option value="0">Poor</option>
+                <option value="1">Good</option>
+              </select>
+            </td>
+            <td>
+              <h3>Pedal Edema</h3>
+              <select name="pe" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </td>
+            <td>
+              <h3>Anemia</h3>
+              <select name="ane" required="required">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <button id="sub" type="submit" style="background-color: lightgreen;">Get Chronic Kidney Disease Info</button>
+    </form>
+    <br><h3>{{ prediction_text }}<h3>
+</div>
+
+{% endblock %}

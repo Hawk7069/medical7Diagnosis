@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container cancer-container" style="color: lightblue">
+    <form action="{{ url_for('liver_predict')}}" method="post">
+        <h2 style="color: lightgreen;">Liver Disease Prediction</h2>
+        <h3>Age of Patient</h3>
+        <br>
+        <input type="number" name="age" placeholder="Age" required="required">
+        <br>
+        <h3>Sex</h3>
+        <br>
+        <select name="sex" id="sex" required="required">
+          <option value="0">Female</option>
+          <option value="1">Male</option>
+        </select>
+        <br>
+        <h3>Total Bilirubin</h3>
+        <input type="text" name="tb" placeholder="Total Bilirubin" required="required">
+        <br>
+        <h3>Direct Bilirubin</h3>
+        <input type="text" name="db" placeholder="Direct Bilirubin" required="required">
+        <br>
+        <h3>Alkaline Phosphotase</h3>
+        <input type="number" name="ap" placeholder="Alkaline Phosphotase" required="required">
+        <br>
+        <h3>Alamine Aminotransferase</h3>
+        <input type="number" name="aa" placeholder="Alamine Aminotransferase" required="required">
+        <br>
+        <h3>Aspartate Aminotransferase</h3>
+        <input type="number" name="asa" placeholder="Aspartate Aminotransferase" required="required">
+        <br>
+        <h3>Total Protiens</h3>
+        <input type="text" name="tp" placeholder="Total Protiens" required="required">
+        <br>
+        <h3>Albumin</h3>
+        <input type="text" name="al" placeholder="Albumin" required="required">
+        <br>
+        <h3>Albumin and Globulin_Ratio</h3>
+        <input type="text" name="agr" placeholder="Albumin and Globulin_Ratio" required="required">
+        <br>
+        <br>
+        <button id="sub" type="submit" style="background-color: lightgreen;">Get Liver Disease Info</button>
+    </form>
+    <br><h3>{{ prediction_text }}<h3>
+</div>
+
+{% endblock %}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical7Diagnosis</title>
+    <link rel="shortcut icon" href="../static/images/logo.png">
+    <<link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    {% block styles %}{% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('Home') }}">7 Medical Diagnostics Demo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggle">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" href="{{ url_for('Cancer') }}">Breast Cancer</a>
+        <a class="nav-item nav-link" href="{{ url_for('Diabetes') }}">Diabetes</a>
+        <a class="nav-item nav-link" href="{{ url_for('Heart') }}">Heart Disease</a>
+        <a class="nav-item nav-link" href="{{ url_for('Liver') }}">Liver Disease</a>
+        <a class="nav-item nav-link" href="{{ url_for('Kidney') }}">Kidney Disease</a>
+        <a class="nav-item nav-link" href="{{ url_for('Malaria') }}">Malaria</a>
+        <a class="nav-item nav-link" href="{{ url_for('Pneumonia') }}">Pneumonia</a>
+
+      </div>
+  </div>
+</nav>
+
+  {% block content%} {% endblock %}
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">Made By: Arpit Verma on 3rd September 2020.</span>
+    </div>
+  </footer>
+  <style>
+      body {
+          background-color: gray;
+          text-align: center;
+          padding: 0px;
+      }
+
+      table {
+        width: 100%;
+        height: 100%;
+      }
+
+      .cancer-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      #research {
+          font-size: 18px;
+          width: 100px;
+          height: 23px;
+          top: 23px;
+      }
+
+      #box {
+          border-radius: 60px;
+          border-color: 45px;
+          border-style: solid;
+          font-family: cursive;
+          text-align: center;
+          background-color: rgb(168, 131, 61);
+          font-size: medium;
+          position: absolute;
+          width: 700px;
+          bottom: 9%;
+          height: 850px;
+          right: 30%;
+          padding: 0px;
+          margin: 0px;
+          font-size: 14px;
+      }
+
+      .footer {
+        background-color: #f5f5f5;
+        width: 100%;
+        text-align: center;
+      }
+
+      #fuel {
+          width: 83px;
+          height: 43px;
+          text-align: center;
+          border-radius: 14px;
+          font-size: 20px;
+      }
+
+      #fuel:hover {
+          background-color: coral;
+      }
+
+      #research {
+          width: 120px;
+          height: 43px;
+          text-align: center;
+          border-radius: 14px;
+          font-size: 18px;
+      }
+
+      #research:hover {
+          background-color: coral;
+      }
+
+      #resea {
+          width: 100px;
+          height: 43px;
+          text-align: center;
+          border-radius: 14px;
+          font-size: 18px;
+      }
+
+      #resea:hover {
+          background-color: coral;
+      }
+
+      #sub {
+          width: 220px;
+          height: 43px;
+          text-align: center;
+          border-radius: 14px;
+          font-size: 18px;
+      }
+
+      #sub:hover {
+          background-color: darkcyan;
+      }
+
+      #first {
+          border-radius: 14px;
+          height: 25px;
+          font-size: 20px;
+          text-align: center;
+      }
+
+      #second {
+          border-radius: 14px;
+          height: 25px;
+          font-size: 20px;
+          text-align: center;
+      }
+
+      #third {
+          border-radius: 14px;
+          height: 25px;
+          font-size: 20px;
+          text-align: center;
+      }
+
+      #fourth {
+          border-radius: 14px;
+          height: 25px;
+          font-size: 20px;
+          text-align: center;
+      }
+  </style>
+</body>
+
+{% block scripts %}
+{% endblock %}
+
+</html>
